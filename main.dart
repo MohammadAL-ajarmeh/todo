@@ -1,4 +1,4 @@
-// main.dart
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+    const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -17,8 +17,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      return MaterialApp(
+       theme: isDarkMode ? ThemeData.dark() : ThemeData.light(),
       home: TodoApp(
         onToggleTheme: () {
           setState(() {
@@ -53,33 +53,32 @@ class _TodoAppState extends State<TodoApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Todo Application',)),
+   appBar: AppBar(title: const Text('Todo Application',)),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+  padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            // Input and Add button
             Row(
-              children: [
+         children: [
                 Expanded(
-                  child: TextField(
+               child: TextField(
                     
                     controller: controller,
-                    maxLength: 10,
-                    decoration: const InputDecoration(
-                      labelText: 'Task',
-                      border: OutlineInputBorder(),
-                      counterText: '',
+             maxLength: 10,
+               decoration: const InputDecoration(
+                   labelText: 'Task',
+                   border: OutlineInputBorder(),
+                   counterText: '',
                     ),
                   ),
                 ),
                 const SizedBox(width: 8),
                 ElevatedButton(
                   onPressed: () {
-                    if (controller.text.trim().isNotEmpty) {
+                  if (controller.text.trim().isNotEmpty) {
                       setState(() {
-                        tasks.add(controller.text.trim());
-                        controller.clear();
+                    tasks.add(controller.text.trim());
+                    controller.clear();
                       });
                     }
                   },
@@ -90,20 +89,19 @@ class _TodoAppState extends State<TodoApp> {
             ),
             const SizedBox(height: 16),
 
-            // Task List
             Expanded(
               child: tasks.isEmpty
                   ? const Center(child: Text('No tasks yet.'))
                   : ListView.builder(
-                      itemCount: tasks.length,
-                      itemBuilder: (_, index) {
-                        return Card(
+                   itemCount: tasks.length,
+                   itemBuilder: (_, index) {
+                      return Card(
                           child: ListTile(
-                            title: Text(tasks[index]),
+                        title: Text(tasks[index]),
                             trailing: IconButton(
-                              icon: const Icon(Icons.delete),
-                              onPressed: () {
-                                setState(() {
+                             icon: const Icon(Icons.delete),
+                             onPressed: () {
+                              setState(() {
                                   tasks.removeAt(index);
                                 });
                               },
@@ -121,7 +119,7 @@ class _TodoAppState extends State<TodoApp> {
                 Icon(widget.isDarkMode ? Icons.nightlight_round : Icons.wb_sunny),
                 Switch(
                   value: widget.isDarkMode,
-                  onChanged: (value) {
+                 onChanged: (value) {
                     widget.onToggleTheme();
                   },
                 ),
