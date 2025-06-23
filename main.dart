@@ -102,13 +102,13 @@ class _TodoAppState extends State<TodoApp> {
                              icon: const Icon(Icons.delete),
                              onPressed: () {
                               setState(() {
-                                  tasks.removeAt(index);
-                                });
+                               tasks.removeAt(index);
+                            });
                               },
-                            ),
-                          ),
-                        );
-                      },
+                           ),
+                         ),
+                      );
+                     },
                     ),
             ),
 
